@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import React from "react";
 
 const Nav = styled.nav`
   display: flex;
@@ -17,28 +18,29 @@ const List = styled.ul`
   text-decoration: none;
   color: white;
 `;
-const NavigationLink = ({ link, children }) => (
-  <Link to={`${link}`}>{children}</Link>
+
+// Links
+const NavigationLink = ({ link, children, className }) => (
+  <Link to={`${link}`} className={className}>
+    {children}
+  </Link>
 );
 
 const ListElement = styled(NavigationLink)`
   display: flex;
 
   text-decoration: none;
-  color: white;
-  a {
-    text-decoration: none;
-    color: black;
-  }
+  color: black;
+  font-family: "Playfair Display";
+  font-size: 2rem;
 `;
 
 export const Navigationbar = () => {
   return (
-    <Nav>
+    <Nav data-testid="NAV-1">
       <List>
-        <ListElement link={"/"}>Home</ListElement>
-        <ListElement link={"/pricing"}>Pricing</ListElement>
-        <ListElement link={"/about-us"}>About us</ListElement>
+        <ListElement link={"/"}>Navigation</ListElement>
+        <ListElement link={"/"}>Bar</ListElement>
       </List>
     </Nav>
   );
